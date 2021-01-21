@@ -1,8 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import StarIcon from '@material-ui/icons/Star';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {categories as mockCategories} from "../MockData";
@@ -15,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   categoryBar: {
     display: "flex",
+    padding: "10px",
   },
   categoryName: {
     "text-transform": "uppercase",
@@ -56,7 +55,6 @@ const CategoryList = props => {
     <div>
       <div onClick={handleClick} className={classes.categoryBar}>
         <ListItemText primary={category} className={classes.categoryName} />
-        {/*<StarIcon />*/}
       </div>
       <Menu
         id="simple-menu"

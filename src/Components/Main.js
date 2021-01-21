@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
       height: "100%"
     },
   },
+  app: {
+    "text-align": "center",
+  },
   productGrid: {
     display: "flex",
     "justify-content": "space-evenly",
@@ -40,7 +43,7 @@ const Main = () => {
   }, [getProducts])
 
   return (
-    <div className="App">
+    <div className={classes.app}>
       <Paper>
         <SearchAppBar/>
         <div>
