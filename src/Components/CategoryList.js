@@ -6,7 +6,6 @@ import StarIcon from '@material-ui/icons/Star';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {categories as mockCategories} from "../MockData";
-import './Main.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,9 +13,18 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
+  categoryBar: {
+    display: "flex",
+  },
+  categoryName: {
+    "text-transform": "uppercase",
+    "font-size": "xx-large",
+    "font-weight": "bold"
+  }
 }));
 
 const CategoryList = props => {
+  const classes = useStyles();
   const {category, setCategory} = props;
   const [categories, setCategories] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -46,8 +54,8 @@ const CategoryList = props => {
 
   return (
     <div>
-      <div onClick={handleClick} className="categoryBar">
-        <ListItemText primary={category} className="categoryName" />
+      <div onClick={handleClick} className={classes.categoryBar}>
+        <ListItemText primary={category} className={classes.categoryName} />
         {/*<StarIcon />*/}
       </div>
       <Menu

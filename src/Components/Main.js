@@ -5,18 +5,20 @@ import CategoryList from './CategoryList';
 import MediaCard from "./MediaCard";
 import { makeStyles } from '@material-ui/core/styles';
 import {products as mockProducts} from "../MockData";
-import './Main.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
     '& > *': {
       margin: theme.spacing(1),
-      width: theme.spacing(100),
-      height: theme.spacing(100),
+      width: "100%",
+      height: "100%"
     },
   },
+  productGrid: {
+    display: "flex",
+    "justify-content": "space-evenly",
+  }
 }));
 
 const Main = () => {
@@ -38,12 +40,12 @@ const Main = () => {
   }, [getProducts])
 
   return (
-    <div className={classes.root}>
-      <Paper className="paperWrap">
+    <div className="App">
+      <Paper>
         <SearchAppBar/>
         <div>
           <CategoryList category={category} setCategory={setCategory}/>
-          <div className="productGrid">
+          <div className={classes.productGrid}>
             {
               products.map(product => {
                 return <MediaCard name={product.name} desc={product.description} imageUrl={product.imageUrl} key={product.id}/>
